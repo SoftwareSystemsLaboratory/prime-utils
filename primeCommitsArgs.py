@@ -1,6 +1,6 @@
 from argparse import ArgumentParser, Namespace
 
-from prime_commits.utils.common import name, author, version
+from prime_commits.utils.common import author, name, version
 
 
 def mainArgs() -> Namespace:
