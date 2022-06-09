@@ -1,17 +1,15 @@
 from argparse import ArgumentParser, Namespace
 
-from prime_commits.utils.common import (SortingHelpFormatter, author, name,
-                                        outputFile, version)
+from prime_commits.utils import common
 
 
 def mainArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
-        prog=f"{name} Git Commit LOC Exploder",
+        prog=f"{common.name} Commit Extractor",
         description="A tool to extract all LOC information from a single branch of a Git repository on a per commit basis",
-        epilog=f"Author(s): {author}",
-        formatter_class=SortingHelpFormatter,
+        epilog=f"Author(s): {common.author}",
+        formatter_class=common.SortingHelpFormatter,
     )
-
     parser.add_argument(
         "-d",
         "--directory",
@@ -35,8 +33,8 @@ def mainArgs() -> Namespace:
         required=False,
         default="log.log",
     )
-    version(parser=parser)
-    outputFile(
+    common.versionArg(parser=parser)
+    common.outputFileArg(
         parser=parser,
         helpMessage="JSON file to extract commits to. DEFAULT: commits.json",
         defaultFile="commits.json",
@@ -47,81 +45,51 @@ def mainArgs() -> Namespace:
 
 def graphArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
-        prog=f"{name} Git Commit LOC Exploder Grapher",
-        description=f"A tool for graphing LOC information from the output of the {name} Commit LOC Exploder",
-        epilog=f"Author(s): {author}",
+        prog=f"{common.name} Commit Extractor",
+        description=f"A tool for graphing LOC information from the output of the {common.name} Commit Extractor",
+        epilog=f"Author(s): {common.author}",
+        formatter_class=common.SortingHelpFormatter,
     )
-
-    parser.add_argument(
-        "-i",
-        "--input",
-        help=f"JSON export from {name} Git Commit Exploder. DEFAULT: ./commits_loc.json",
-        type=str,
-        required=False,
-        default="commits_loc.json",
+    common.plotXDataArg(
+        parser=parser,
+        helpMessage="X data to plot. NOTE: Should be equivalent to a key in the input file. DEFAULT: days_since_0",
     )
-    parser.add_argument(
-        "-o",
-        "--output",
-        help="Filename of the graph. DEFAULT: ./commits_loc.pdf",
-        type=str,
-        required=False,
-        default="commits_loc.pdf",
+    common.plotYDataArg(
+        parser=parser,
+        helpMessage="Y data to plot. NOTE: Should be equivalent to a key in the input file. DEFAULT: commit_number",
     )
-    parser.add_argument(
-        "-x",
-        help="Key of the x values to use for graphing. DEFAULT: author_days_since_0",
-        type=str,
-        required=False,
-        default="author_days_since_0",
+    common.plotTypeArg(
+        parser=parser,
+        helpMessage="Specify the plot type. NOTE: Can only be line or bar. DEFAULT: line",
+        defaultValue="line",
     )
-    parser.add_argument(
-        "-y",
-        help="Key of the y values to use for graphing. DEFAULT: lines_of_code",
-        type=str,
-        required=False,
-        default="lines_of_code",
+    common.plotTitleArg(
+        parser=parser,
+        helpMessage="The title of the graph. DEFAULT: Commits",
+        defaultValue="Commits",
     )
-    parser.add_argument(
-        "--type",
-        help="Type of figure to plot. DEFAULT: line",
-        type=str,
-        required=False,
-        default="line",
+    common.plotXLabelArg(
+        parser=parser,
+        helpMessage="The label of the X axis. DEFAULT: Time",
+        defaultValue="Time",
     )
-    parser.add_argument(
-        "--title",
-        help='Title of the figure. DEFAULT: ""',
-        type=str,
-        required=False,
-        default="",
+    common.plotYLabelArg(
+        parser=parser, helpMessage="The label of the Y axis. DEFAULT: Commits"
     )
-    parser.add_argument(
-        "--x-label",
-        help='X axis label of the figure. DEFAULT: ""',
-        type=str,
-        required=False,
-        default="",
+    common.plotStylesheetArg(
+        parser=parser,
+        helpMessage="Matplotlib stylesheet written in a .mpl file. DEFAULT: None",
+        defaultFile=None,
     )
-    parser.add_argument(
-        "--y-label",
-        help='Y axis label of the figure. DEFAULT: ""',
-        type=str,
-        required=False,
-        default="",
+    common.versionArg(parser=parser)
+    common.outputFileArg(
+        parser=parser,
+        helpMessage="File to save graph to. DEFAULT: commits.pdf",
+        defaultFile="commits.pdf",
     )
-    parser.add_argument(
-        "--stylesheet",
-        help='Filepath of matplotlib stylesheet to use. DEFAULT: ""',
-        type=str,
-        required=False,
-        default="",
-    )
-    parser.add_argument(
-        "-v",
-        "--version",
-        help="Display version of the tool",
-        action="store_true",
-        default=False,
+    common.inputFileArg(
+        parser=parser,
+        helpMessage="File to generate graph from. DEFAULT: commits.json",
+        defaultFile="commits.json",
     )
     return parser.parse_args()
