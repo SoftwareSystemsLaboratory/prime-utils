@@ -1,14 +1,13 @@
 from argparse import ArgumentParser, Namespace
 
-name: str = "CLIME"
-authors: list = ["Nicholas M. Synovic", "Matthew Hyatt", "George K. Thiruvathukal"]
+from prime_commits.utils.common import name, author
 
 
 def mainArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
         prog=f"{name} Git Commit LOC Exploder",
         description="A tool to extract all LOC information from a single branch of a Git repository on a per commit basis",
-        epilog=f"Author(s): {', '.join(authors)}",
+        epilog=f"Author(s): {author}",
     )
 
     parser.add_argument(
@@ -70,7 +69,7 @@ def graphArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
         prog=f"{name} Git Commit LOC Exploder Grapher",
         description=f"A tool for graphing LOC information from the output of the {name} Commit LOC Exploder",
-        epilog=f"Author(s): {', '.join(authors)}",
+        epilog=f"Author(s): {author}",
     )
 
     parser.add_argument(
