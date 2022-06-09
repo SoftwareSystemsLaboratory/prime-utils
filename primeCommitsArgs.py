@@ -27,14 +27,6 @@ def mainArgs() -> Namespace:
         default="HEAD",
     )
     parser.add_argument(
-        "-o",
-        "--output",
-        help="JSON file to store the data. DEFAULT: ./commits_loc.json",
-        type=str,
-        required=False,
-        default="commits_loc.json",
-    )
-    parser.add_argument(
         "--log",
         help="Log file to store logging information to. DEFAULT: log.txt",
         type=str,
