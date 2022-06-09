@@ -1,9 +1,9 @@
-name: str = "PRIME"
-author: str = "Software and Systems Laboratory"
-
 from argparse import ArgumentParser
 
 from version_utility.utils.self import readVersion
+
+name: str = "PRIME"
+author: str = "Software and Systems Laboratory"
 
 
 def version(parser: ArgumentParser) -> None:
