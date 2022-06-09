@@ -1,6 +1,6 @@
 from argparse import ArgumentParser, Namespace
 
-from prime_commits.utils.common import author, name, outputFile, version
+from prime_commits.utils.common import author, name, outputFile, version, SortingHelpFormatter
 
 
 def mainArgs() -> Namespace:
@@ -8,6 +8,7 @@ def mainArgs() -> Namespace:
         prog=f"{name} Git Commit LOC Exploder",
         description="A tool to extract all LOC information from a single branch of a Git repository on a per commit basis",
         epilog=f"Author(s): {author}",
+        formatter_class=SortingHelpFormatter
     )
 
     parser.add_argument(
