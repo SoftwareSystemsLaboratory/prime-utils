@@ -1,6 +1,6 @@
 from argparse import ArgumentParser, Namespace
 
-from prime_commits.utils.common import name, author
+from prime_commits.utils.common import name, author, version
 
 
 def mainArgs() -> Namespace:
@@ -35,33 +35,14 @@ def mainArgs() -> Namespace:
         default="commits_loc.json",
     )
     parser.add_argument(
-        "--cloc",
-        help='TXT file containing cloc options. DEFAULT: ""',
-        type=str,
-        required=False,
-        default="",
-    )
-    parser.add_argument(
-        "--processes",
-        help="Number of processes cloc should use. DEFAULT: 0",
-        type=int,
-        required=False,
-        default=0,
-    )
-    parser.add_argument(
         "--log",
         help="Log file to store logging information to. DEFAULT: log.txt",
         type=str,
         required=False,
         default="log.log",
     )
-    parser.add_argument(
-        "-v",
-        "--version",
-        help="Display version of the tool",
-        action="store_true",
-        default=False,
-    )
+    version(parser=parser)
+
     return parser.parse_args()
 
 
