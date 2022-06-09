@@ -1,9 +1,16 @@
-from argparse import ArgumentError, ArgumentParser
+from argparse import ArgumentParser, HelpFormatter
+from operator import attrgetter
 
-from version_utility.utils.self import readVersion
+from version_utility.main import readFile, readVersion
 
 name: str = "PRIME"
 author: str = "Software and Systems Laboratory"
+
+
+class SortingHelpFormatter(HelpFormatter):
+    def add_arguments(self, actions):
+        actions = sorted(actions, key=attrgetter("option_strings"))
+        super(SortingHelpFormatter, self).add_arguments(actions)
 
 
 def version(parser: ArgumentParser) -> None:
@@ -12,7 +19,7 @@ def version(parser: ArgumentParser) -> None:
         "--version",
         help="Display the version of this tool",
         action="version",
-        version=f"{parser.prog}: {readVersion()}",
+        version=f"{parser.prog}: {readVersion(readFile())}",
     )
 
 

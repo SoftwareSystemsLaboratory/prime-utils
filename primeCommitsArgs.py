@@ -1,6 +1,6 @@
 from argparse import ArgumentParser, Namespace
 
-from prime_commits.utils.common import author, name, version
+from prime_commits.utils.common import author, name, outputFile, version
 
 
 def mainArgs() -> Namespace:
@@ -34,6 +34,11 @@ def mainArgs() -> Namespace:
         default="log.log",
     )
     version(parser=parser)
+    outputFile(
+        parser=parser,
+        helpMessage="JSON file to extract commits to. DEFAULT: commits.json",
+        defaultFile="commits.json",
+    )
 
     return parser.parse_args()
 
