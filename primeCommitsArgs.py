@@ -27,13 +27,6 @@ def mainArgs() -> Namespace:
         default="HEAD",
     )
     parser.add_argument(
-        "--log",
-        help="Log file to store logging information to. DEFAULT: log.txt",
-        type=str,
-        required=False,
-        default="log.log",
-    )
-    parser.add_argument(
         "-p",
         "--processes",
         help="Number of cores that cloc should use. NOTE: 0 disables multiprocessing. DEFAULT: 0",
