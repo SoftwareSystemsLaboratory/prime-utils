@@ -33,7 +33,15 @@ def mainArgs() -> Namespace:
         required=False,
         default="log.log",
     )
-    common.versionArg(parser=parser)
+    parser.add_argument(
+        "-p",
+        "--processes",
+        help="Number of cores that cloc should use. NOTE: 0 disables multiprocessing. DEFAULT: 0",
+        type=int,
+        required=False,
+        default=0,
+    )
+    common.versionArg(parser=parser, version="0.12.0")
     common.outputFileArg(
         parser=parser,
         helpMessage="JSON file to extract commits to. DEFAULT: commits.json",
