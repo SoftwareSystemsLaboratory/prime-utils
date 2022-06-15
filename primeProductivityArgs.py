@@ -51,7 +51,7 @@ def graphArgs() -> Namespace:
     )
     common.plotTitleArg(
         parser=parser,
-        helpMessage='Title of the graph. DEFAULT: "Productivity"',
+        helpMessage='Title of the graph. DEFAULT: Productivity',
         defaultValue="Productivity",
     )
     common.plotXLabelArg(
