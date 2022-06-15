@@ -9,7 +9,7 @@ def bugzillaArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
         prog=f"{common.name} Bugzilla Issues Downloader (BETA)",
         description="A tool to download all Issues from a Bugzilla hosted issue tracker",
-        epilog=f"Author(s): {', '.join(common.authors)}",
+        epilog=f"Author(s): {common.author}",
         formatter_class=common.SortingHelpFormatter,
     )
 
@@ -40,7 +40,7 @@ def githubArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
         prog=f"{common.name} GitHub Issues Downloader",
         description="A tool to download all issues from a GitHub hosted repository",
-        epilog=f"Author(s): {', '.join(common.authors)}",
+        epilog=f"Author(s): {common.author}",
         formatter_class=common.SortingHelpFormatter,
     )
 
@@ -87,7 +87,7 @@ def gitlabArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
         prog=f"{common.name} Gitlab Issues Downloader",
         description="A tool to download all issues from a Gitlab hosted repository",
-        epilog=f"Author(s): {', '.join(common.authors)}",
+        epilog=f"Author(s): {common.author}",
         formatter_class=common.SortingHelpFormatter,
     )
 
