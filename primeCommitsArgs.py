@@ -2,6 +2,8 @@ from argparse import ArgumentParser, Namespace
 
 from prime_commits.utils import common
 
+version: str = "0.12.0"
+
 
 def mainArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
@@ -34,7 +36,7 @@ def mainArgs() -> Namespace:
         required=False,
         default=0,
     )
-    common.versionArg(parser=parser, version="0.12.0")
+    common.versionArg(parser=parser, version=version)
     common.outputFileArg(
         parser=parser,
         helpMessage="JSON file to extract commits to. DEFAULT: commits.json",
@@ -46,7 +48,7 @@ def mainArgs() -> Namespace:
 
 def graphArgs() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
-        prog=f"{common.name} Commit Extractor",
+        prog=f"{common.name} Commit Grapher",
         description=f"A tool for graphing LOC information from the output of the {common.name} Commit Extractor",
         epilog=f"Author(s): {common.author}",
         formatter_class=common.SortingHelpFormatter,
@@ -79,10 +81,8 @@ def graphArgs() -> Namespace:
     )
     common.plotStylesheetArg(
         parser=parser,
-        helpMessage="Matplotlib stylesheet written in a .mpl file. DEFAULT: None",
-        defaultFile=None,
     )
-    common.versionArg(parser=parser)
+    common.versionArg(parser=parser, version=version)
     common.outputFileArg(
         parser=parser,
         helpMessage="File to save graph to. DEFAULT: commits.pdf",

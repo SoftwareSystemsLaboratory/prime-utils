@@ -106,7 +106,9 @@ def plotYLabelArg(parser: ArgumentParser, helpMessage: str, defaultValue: str) -
 
 
 def plotStylesheetArg(
-    parser: ArgumentParser, helpMessage: str, defaultFile: str
+    parser: ArgumentParser,
+    helpMessage: str = "Matplotlib stylesheet written in a .mpl file. DEFAULT: None",
+    defaultFile: str = None,
 ) -> None:
     parser.add_argument(
         "--stylesheet",
