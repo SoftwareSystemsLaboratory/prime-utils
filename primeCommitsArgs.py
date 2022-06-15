@@ -68,16 +68,16 @@ def graphArgs() -> Namespace:
     )
     common.plotTitleArg(
         parser=parser,
-        helpMessage="The title of the graph. DEFAULT: Commits",
+        helpMessage="Title of the graph. DEFAULT: Commits",
         defaultValue="Commits",
     )
     common.plotXLabelArg(
         parser=parser,
-        helpMessage="The label of the X axis. DEFAULT: Time",
+        helpMessage="Label of the X axis. DEFAULT: Time",
         defaultValue="Time",
     )
     common.plotYLabelArg(
-        parser=parser, helpMessage="The label of the Y axis. DEFAULT: Commits"
+        parser=parser, helpMessage="Label of the Y axis. DEFAULT: Commits"
     )
     common.plotStylesheetArg(
         parser=parser,

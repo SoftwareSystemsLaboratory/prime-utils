@@ -71,7 +71,7 @@ def graphArgs() -> Namespace:
     )
     common.plotXLabelArg(
         parser=parser,
-        helpMessage="Labe of the X axis of the graph. DEFAULT: Days",
+        helpMessage="Label of the X axis of the graph. DEFAULT: Days",
         defaultValue="Days",
     )
     common.plotXDataArg(
@@ -81,7 +81,7 @@ def graphArgs() -> Namespace:
     )
     common.plotYLabelArg(
         parser=parser,
-        helpMessage="Labe of the Y axis of the graph. DEFAULT: Bus Factor",
+        helpMessage="Label of the Y axis of the graph. DEFAULT: Bus Factor",
         defaultValue="Bus Factor",
     )
     common.plotYDataArg(

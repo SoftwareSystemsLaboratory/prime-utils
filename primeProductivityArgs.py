@@ -56,12 +56,12 @@ def graphArgs() -> Namespace:
     )
     common.plotXLabelArg(
         parser=parser,
-        helpMessage="Labe of the X axis of the graph. DEFAULT: Days",
+        helpMessage="Label of the X axis of the graph. DEFAULT: Days",
         defaultValue="Days",
     )
     common.plotYLabelArg(
         parser=parser,
-        helpMessage="Labe of the Y axis of the graph. DEFAULT: Productivity",
+        helpMessage="Label of the Y axis of the graph. DEFAULT: Productivity",
         defaultValue="Productivity",
     )
     common.plotStylesheetArg(parser=parser)
