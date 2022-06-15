@@ -14,7 +14,7 @@ def mainArgs() -> Namespace:
     )
     common.inputFileArg(
         parser=parser,
-        helpMessage=f"JSON file from {common.name} Issues Extractor. DEFAULT: issues.json",
+        helpMessage=f"JSON file from {common.name} Issues Downloader. DEFAULT: issues.json",
         defaultFile="issues.json",
     )
     common.versionArg(parser=parser, version=version)

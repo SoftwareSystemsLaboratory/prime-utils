@@ -23,7 +23,7 @@ def mainArgs() -> Namespace:
     parser.add_argument(
         "-i",
         "--issues",
-        help=f"Issues JSON file from {common.name} Issues Extractor. DEFAULT: issues.json",
+        help=f"Issues JSON file from {common.name} Issues Downloader. DEFAULT: issues.json",
         default="issues.json",
         required=False,
         type=str,
