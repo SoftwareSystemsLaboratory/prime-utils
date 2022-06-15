@@ -4,6 +4,7 @@ from operator import attrgetter
 name: str = "PRIME"
 author: str = "Software and Systems Laboratory"
 
+
 class SortingHelpFormatter(HelpFormatter):
     def add_arguments(self, actions):
         actions = sorted(actions, key=attrgetter("option_strings"))
