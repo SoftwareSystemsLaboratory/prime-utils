@@ -91,3 +91,4 @@ def graphArgs() -> Namespace:
     )
     common.plotStylesheetArg(parser=parser)
     common.versionArg(parser=parser, version=version)
+    return parser.parse_args()
